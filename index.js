@@ -71,3 +71,34 @@ function savetoDb(data){
     console.log("fail............");
    // console.log(request);
 });
+
+/*************promise apply on callback hell by using async and await method***  */
+head = document.querySelector("h2");
+function changeColor(color,delay){
+    return new Promise ((resolve,reject)=>{
+        let r = Math.floor(Math.random()*10)+1;
+   if(r<2){
+   reject("promise reject");
+   console.log("promise rejected");
+   }
+    setTimeout(()=>{
+        head.style.color=color;
+        console.log(`color change to ${color}`);
+        resolve("color change");
+      },delay);
+    });
+}
+async function demo(){
+   try{
+    await changeColor("red",1000);
+    await changeColor("pink",1000);
+    await changeColor("yellow",1000);
+    await changeColor("green",1000);
+    await changeColor("purple",1000);
+   }catch(e){
+    console.log("error");
+   }
+
+    let p=9;
+    console.log(p);
+}
